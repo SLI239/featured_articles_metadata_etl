@@ -9,6 +9,8 @@ MAKE SURE THE NAME OF THE S3 IS: articles-metadata-bucket
 ALSO GET CREDENTIALS (CLIENT ID AND SECRET) FOR WIKIMEDIA API
 
 # 1. BUILD DOCKER IMAGE WITH PYTHON PACKAGES NEEDED
+# FIRST CREATE DIRECTORIES
+mkdir ./config ./data ./logs ./plugins
 docker build --build-arg AIRFLOW_VERSION=2.10.2 -t apache/airflow-custom:2.10.2 .
 
 # 2. CREATE .env AND RUN DOCKER COMPOSE
