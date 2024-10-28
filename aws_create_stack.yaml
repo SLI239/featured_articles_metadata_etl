@@ -1,0 +1,95 @@
+Description: CFT for creating S3 and Glue Crawler
+
+Parameters:
+  BucketPrefix:
+    Description: Prefix to apply to bucket names (makes them globally unique).
+    Type: String
+    AllowedPattern: (^[a-z0-9-]+$)
+  CrawlerName:
+    Description: Name to use for the articles metadata crawler.
+    Type: String
+    AllowedPattern: (^[a-z0-9-]+$)
+    Default: articles-metadata-crawler
+
+Resources:
+  ArticlesMetadataBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${BucketPrefix}-bucket"
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+    DeletionPolicy: Retain
+
+  ArticlesMetadataCrawler:
+    Type: AWS::Glue::Crawler
+    Properties:
+      Name: !Ref CrawlerName
+      Description: Crawler for indexing metadata from S3.
+      DatabaseName: articles-metadata
+      Targets:
+        S3Targets:
+          - Path: !Sub "${ArticlesMetadataBucket}"
+      Role: !Ref ArticlesMetadataCrawlerRole
+
+  ArticlesMetadataCrawlerRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+        - Effect: Allow
+          Principal:
+            Service: glue.amazonaws.com
+          Action: sts:AssumeRole
+      Path: /
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole
+        - !Ref CrawlMetadataPolicy
+
+  CrawlMetadataPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      Description: Policy allowing the crawler to crawl the articles metadata bucket.
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - s3:GetObject
+              - s3:PutObject
+            Resource: !Sub arn:aws:s3:::${ArticlesMetadataBucket}/*
+
+  User:
+    Type: AWS::IAM::User
+    Properties:
+      UserName: "airflow"
+      ManagedPolicyArns:
+        - !Ref S3UploadPolicy
+        - !Ref GlueCrawlerPolicy
+
+  S3UploadPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      Description: Policy allowing files to be uploaded to the articles metadata bucket.
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action: s3:PutObject
+            Resource: !Sub arn:aws:s3:::${ArticlesMetadataBucket}/*
+
+  GlueCrawlerPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      Description: Policy allowing starting of crawlers and getting their status.
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - glue:GetCrawler
+              - glue:StartCrawler
+            Resource: '*'
+
+  
