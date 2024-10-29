@@ -3,11 +3,11 @@ This Airflow pipeline has been developed to collect metadata of featured article
 
 
 ## Prerequisite
-1. **Wikimedia Cliend Id and Client Secret**\
+1.  **Wikimedia Cliend Id and Client Secret**\
   Take a look at [Getting started with Wikimedia APIs](https://api.wikimedia.org/wiki/Getting_started_with_Wikimedia_APIs)
-2. **AWS Stack**\
+2.  **AWS Stack**\
   Create an S3 bucket and Glue Crawler using AWS the Cloud Formation Template (aws_create_stack.yaml)
-3. **Docker Desktop**\
+3.  **Docker Desktop**\
   Installation guide on the official website is [here](https://docs.docker.com/compose/install/)
    
 
