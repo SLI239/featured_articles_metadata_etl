@@ -37,7 +37,9 @@ Default ID and Password for login is `airflow`
 | ----------------------- | ------- | ----------------------- | ------- | 
 | **MY_AWS_CONN**    | AWS Services | `your access key Id` | `your secret access key` |
 
-## Note
 
+## Note
+- WHERE THE CODE CAME FROM
+- BEARER TOKEN ISSUE  
 
 
