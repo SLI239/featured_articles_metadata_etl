@@ -14,7 +14,8 @@ This Airflow pipeline has been developed to collect metadata of featured article
 ## How to Run
 1. Git clone and Set up directory structure
 ```
-git clone 
+git clone https://github.com/SLI239/featured_article_metadata_etl.git
+cd featured_article 
 ```
 
 # 1. BUILD DOCKER IMAGE WITH PYTHON PACKAGES NEEDED
