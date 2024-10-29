@@ -42,7 +42,8 @@ Default ID and Password for login is `airflow`
 
 
 ## Note
-- WHERE THE CODE CAME FROM: CRAWLER AND DOCKER COMPOSE
-- BEARER TOKEN ISSUE  
+- **Take extra caution in securing Wikimedia token**: The API token type is bearer token and it is pushed to XCom, and can be easily found on the Web UI
+- `GlueTriggerCrawlerOperator` is from [data-pipelines-with-apache-airflow](https://github.com/BasPH/data-pipelines-with-apache-airflow/tree/master/chapter16/dags/custom)
+- More information about running Airflow with the CeleryExecutor in Docker is [here](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html)
 
 
