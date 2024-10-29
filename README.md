@@ -27,7 +27,7 @@ docker-compose up
 Default ID and Password for login is `airflow`
 - Variables
 | Key                     | Value   | 
-| ----------------------- | ------- | ------------- |
+| ----------------------- | ------- | 
 |  **WIKI_ACCESS_TOKEN**  | {"client_id":"*your client id*", "client_secret":"*your client secret*"} | 
 |  **S3_BUCKET_NAME**     | articles-metadata-bucket  | 
 |  **GLUE_CRAWLER_NAME**  | articles-metadata-crawler | 
