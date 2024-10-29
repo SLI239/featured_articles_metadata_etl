@@ -4,9 +4,12 @@ This Airflow pipeline has been developed to collect metadata of featured article
 
 ## Prerequisite
 1) Wikimedia Cliend Id and Client Secret
+   Take a look at [Getting started with Wikimedia APIs](https://api.wikimedia.org/wiki/Getting_started_with_Wikimedia_APIs)
 2) AWS Stack
-   Create AWS stack using AWS Cloud Formation Template ()
-4) Docker Desktop 
+   Create an S3 bucket and Glue Crawler using AWS the Cloud Formation Template (aws_create_stack.yaml) in this repository
+3) Docker Desktop
+   Installation guide on the official website is [here](https://docs.docker.com/compose/install/)
+   
 
 # 0. CREATE AWS STACK USING AWS CFT: SUBMIT create_stack.yaml
 MAKE SURE THE NAME OF THE S3 IS: articles-metadata-bucket
