@@ -36,9 +36,9 @@ Default ID and Password for login is `airflow`
 
 - Connections
 
-| Conn Id            | Conn Type    | Access key ID        | Secret access key        |
-| ----------------------- | ------- | ----------------------- | ------- | 
-| **MY_AWS_CONN**    | AWS Services | `your access key Id` | `your secret access key` |
+| Conn Id            | Conn Type    | Extra        | 
+| ----------------------- | ------- | ----------------------- | 
+| **MY_AWS_CONN**    | AWS Web Services | {"aws_access_key_id":"`your access key Id`", "aws_secret_access_key": "`your secret access key`"} |
 
 
 ## Note
