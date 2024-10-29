@@ -14,19 +14,19 @@ This Airflow pipeline has been developed to collect metadata of featured article
 ## How to Run
 1. Git clone and Set up directory structure
 ```
-git clone https://github.com/SLI239/featured_article_metadata_etl.git
-cd featured_article 
-```
-
-# 1. BUILD DOCKER IMAGE WITH PYTHON PACKAGES NEEDED
-# FIRST CREATE DIRECTORIES
+git clone https://github.com/SLI239/featured_articles_metadata_etl.git
+cd featured_articles_metadata_etl
 mkdir ./config ./data ./logs ./plugins
+```
+2. Build Docker image and run Docker Compose
+```
 docker build --build-arg AIRFLOW_VERSION=2.10.2 -t apache/airflow-custom:2.10.2 .
-
-# 2. CREATE .env AND RUN DOCKER COMPOSE
 docker-compose up
-
-# 3. SET UP CONNECTIONS AND VARIABLES ON THE WEB UI
+```
+3. Set up connections and variables on Airflow web UI
+  
+  
+  
 WIKI_ACCESS_TOKEN: client_id, client_secret
 S3_BUCKET_NAME: articles-metadata-bucket
 GLUE_CRAWLER_NAME: articles-metadata-crawler
