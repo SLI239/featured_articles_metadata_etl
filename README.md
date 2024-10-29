@@ -26,13 +26,14 @@ docker-compose up
 3. Set up variables and connections on Airflow web UI
 Default ID and Password for login is `airflow`
 
+- Variables
 | Key                     | Value   | 
 | ----------------------- | ------- | 
 |  **WIKI_ACCESS_TOKEN**  | *{"client_id":"`your client id`", "client_secret":"`your client secret`"}* | 
 |  **S3_BUCKET_NAME**     | *articles-metadata-bucket*  | 
 |  **GLUE_CRAWLER_NAME**  | *articles-metadata-crawler* | 
 
-
+- Connections
 | Conn Id            | Conn Type    | Access key ID        | Secret access key        |
 | ----------------------- | ------- | ----------------------- | ------- | 
 | **MY_AWS_CONN**    | AWS Services | `your access key Id` | `your secret access key` |
