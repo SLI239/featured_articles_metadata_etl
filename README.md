@@ -28,9 +28,9 @@ Default ID and Password for login is `airflow`
 
 | Key                     | Value   | 
 | ----------------------- | ------- | 
-|  **WIKI_ACCESS_TOKEN**  | {"client_id":"`your client id`", "client_secret":"`your client secret`"} | 
-|  **S3_BUCKET_NAME**     | articles-metadata-bucket  | 
-|  **GLUE_CRAWLER_NAME**  | articles-metadata-crawler | 
+|  **WIKI_ACCESS_TOKEN**  | *{"client_id":"`your client id`", "client_secret":"`your client secret`"}* | 
+|  **S3_BUCKET_NAME**     | *articles-metadata-bucket*  | 
+|  **GLUE_CRAWLER_NAME**  | *articles-metadata-crawler* | 
 
 
 | Conn Id            | Conn Type    | Access key ID        | Secret access key        |
