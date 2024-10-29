@@ -23,7 +23,7 @@ mkdir ./config ./data ./logs ./plugins
 docker build --build-arg AIRFLOW_VERSION=2.10.2 -t apache/airflow-custom:2.10.2 .
 docker-compose up
 ```
-3. Set up variables and connections on Airflow web UI
+3. Set up variables and connections on Airflow web UI\
 Default ID and Password for login is `airflow`
 
 - Variables
