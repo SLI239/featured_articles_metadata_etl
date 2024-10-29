@@ -6,7 +6,7 @@ This Airflow pipeline has been developed to collect metadata of featured article
 1.  **Wikimedia Cliend Id and Client Secret**\
   Take a look at [Getting started with Wikimedia APIs](https://api.wikimedia.org/wiki/Getting_started_with_Wikimedia_APIs)
 2.  **AWS Stack**\
-  Create an S3 bucket and Glue Crawler using AWS the Cloud Formation Template (aws_create_stack.yaml). Make sure that the name of the S3 bucket is *articles-metadata-bucket*
+  Create an S3 bucket and Glue Crawler using AWS the Cloud Formation Template (aws_create_stack.yaml). Make sure that the name of the S3 bucket is *articles-metadata-bucket* and download AWS access key
 3.  **Docker Desktop**\
   Installation guide on the official website is [here](https://docs.docker.com/compose/install/)
    
@@ -23,15 +23,18 @@ mkdir ./config ./data ./logs ./plugins
 docker build --build-arg AIRFLOW_VERSION=2.10.2 -t apache/airflow-custom:2.10.2 .
 docker-compose up
 ```
-3. Set up connections and variables on Airflow web UI
-  
-  
-  
-WIKI_ACCESS_TOKEN: client_id, client_secret
-S3_BUCKET_NAME: articles-metadata-bucket
-GLUE_CRAWLER_NAME: articles-metadata-crawler
+3. Set up variables and connections on Airflow web UI
+Default ID and Password for login is `airflow`
+- Variables
+| Key                     | Value   | 
+| ----------------------- | ------- | ------------- |
+|  **WIKI_ACCESS_TOKEN**  | {"client_id":"*your client id*", "client_secret":"*your client secret*"} | 
+|  **S3_BUCKET_NAME**     | articles-metadata-bucket  | 
+|  **GLUE_CRAWLER_NAME**  | articles-metadata-crawler | 
 
-MY_AWS_CONN
-AND 
-# DEFAULT ID PW FOR AIRFLOW UI IS airflow: change if you need
+- Connections
+| Conn Id            | Conn Type    | Access key ID        | Secret access key        |
+| **MY_AWS_CONN**    | AWS Services | *your access key Id* | *your secret access key* |
+
+
 
