@@ -37,11 +37,11 @@ docker-compose up
 
 | Conn Id            | Conn Type    | Extra        | 
 | ----------------------- | ------- | ----------------------- | 
-| **MY_AWS_CONN**    | AWS Web Services | {"aws_access_key_id":"`your access key Id`", "aws_secret_access_key": "`your secret access key`"} |
+| **MY_AWS_CONN**    | AWS Web Services | *{"aws_access_key_id":"`your access key Id`", "aws_secret_access_key": "`your secret access key`"}* |
 
 
 ## Note
-- **Take extra caution in securing Wikimedia token**: The API token type is bearer token and it is pushed to XCom, and can be easily found on the Web UI
+- **Take extra caution in securing Wikimedia token**: The API token type is bearer token and it is pushed to XCom, and can be easily found on the web UI
 - `GlueTriggerCrawlerOperator` is from [data-pipelines-with-apache-airflow](https://github.com/BasPH/data-pipelines-with-apache-airflow/blob/master/chapter16/dags/custom/operators.py)
 - More information about running Airflow with the CeleryExecutor in Docker is [here](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html)
 
